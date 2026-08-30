@@ -119,6 +119,16 @@ Mac은 `brew upgrade yt-dlp`, Windows는 `pip install -U yt-dlp` 또는 `winget 
 **Mac에서 pip 설치가 "externally-managed-environment"로 막혀요**
 Mac은 pip 대신 위의 brew 경로를 쓰세요. brew가 whisper 전용 Python 환경을 따로 만들어줍니다.
 
+**Mac에서 "ffmpeg is already installed from homebrew-ffmpeg/ffmpeg" 에러**
+ffmpeg를 정식 Homebrew가 아닌 외부 탭으로 설치해둔 경우입니다. 그 ffmpeg는 그대로 두고 whisper만 따로 설치하세요.
+
+```bash
+brew install pipx
+pipx install --backend pip openai-whisper
+```
+
+이렇게 하면 whisper가 기존 ffmpeg를 그대로 씁니다. `whisper --help`가 응답하면 끝입니다.
+
 **한국어 영상인데 받아쓰기 정확도가 낮아요**
 기본 모델(base)은 빠른 대신 한국어가 약합니다. Claude에게 "small 모델로 다시 뽑아줘" 또는 "medium 모델로"라고 하세요. 느려지는 만큼 정확해집니다.
 

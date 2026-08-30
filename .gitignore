@@ -1,0 +1,6 @@
+# Claude Code / OMC 로컬 상태 (스킬 실행 중 자동 생성, 배포 대상 아님)
+.omc/
+.claude/
+
+# OS
+.DS_Store
