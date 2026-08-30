@@ -29,7 +29,13 @@ for pkg in ffmpeg yt-dlp openai-whisper; do
     echo "   ✓ $pkg 이미 설치됨"
   else
     echo "   … $pkg 설치 중 (openai-whisper는 몇 분 걸릴 수 있습니다)"
-    brew install "$pkg"
+    brew install "$pkg" || {
+      echo ""
+      echo "   ✗ $pkg 설치에 실패했습니다."
+      echo "     위 에러 메시지를 통째로 복사해서 Claude Code에 붙여넣고"
+      echo "     \"$pkg 설치 도와줘\" 라고 하면 원인을 잡아줍니다."
+      exit 1
+    }
   fi
 done
 
